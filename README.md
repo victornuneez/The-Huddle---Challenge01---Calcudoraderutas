@@ -1,4 +1,4 @@
-🗺️ Proyecto 3: City Pathfinding - Algoritmo A* & Heurística Manhattan
+🗺️ Proyecto: City Pathfinding - Algoritmo A* & Heurística Manhattan
 
 Este proyecto es un simulador de navegación urbana en consola que genera un mapa de ciudad con edificios, calles y obstáculos, encontrando la ruta más óptima entre dos puntos utilizando Inteligencia Artificial.
 

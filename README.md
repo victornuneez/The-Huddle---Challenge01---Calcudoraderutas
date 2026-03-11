@@ -1,55 +1,58 @@
-🗺️ Proyecto: City Pathfinding - Algoritmo A* & Heurística Manhattan
+# 🗺️ Proyecto: City Pathfinding — Algoritmo A* & Heurística Manhattan
 
-Este proyecto es un simulador de navegación urbana en consola que genera un mapa de ciudad con edificios, calles y obstáculos, encontrando la ruta más óptima entre dos puntos utilizando Inteligencia Artificial.
+Este proyecto es un **simulador de navegación urbana** en consola. Genera un mapa de ciudad con edificios, calles y obstáculos dinámicos, encontrando la ruta más óptima entre dos puntos utilizando Inteligencia Artificial avanzada.
 
-📖 Descripción
+## 📖 Descripción
 
-El programa genera una cuadrícula representativa de una ciudad donde el usuario puede definir el tamaño, colocar obstáculos temporales (como obras o inundaciones) y establecer un punto de inicio y destino. El sistema calcula la ruta más corta evitando colisiones y visualizando el resultado con una interfaz amigable de emojis.
+El sistema genera una cuadrícula representativa de una ciudad donde el usuario tiene control total:
+* **Personalización:** Definición del tamaño del mapa.
+* **Dinamicidad:** Colocación de obstáculos temporales como obras (**🚧**) o inundaciones (**🔵**).
+* **Visualización:** Interfaz amigable basada en emojis para representar el entorno y la ruta final.
 
-🛠️ Tecnologías Utilizadas
+---
 
-Lenguaje: Python 3
-Algoritmos de IA: A* (A-Star) con Heurística de Manhattan.
-Estructuras de Datos: heapq (Binary Heap / Priority Queue) para optimización de búsqueda, Diccionarios y Listas por comprensión.
+## 🛠️ Tecnologías Utilizadas
 
-🧠 Lógica y Algoritmos (Paso a Paso)
+* **Lenguaje:** Python 3.x
+* **Algoritmos de IA:** A* (A-Star) con Heurística de Manhattan.
+* **Estructuras de Datos:** * `heapq` (Binary Heap / Priority Queue) para optimizar la selección de nodos.
+    * Diccionarios para el rastreo de costos y padres.
+    * Listas por comprensión para un código más Pythonic y eficiente.
 
-Este proyecto es un ejemplo claro de eficiencia algorítmica:
+---
 
-Algoritmo A*:
+## 🧠 Lógica y Algoritmos
 
-A diferencia de BFS, A* utiliza una función de costo $f(n) = g(n) + h(n)$.
+Este proyecto es un ejemplo claro de **eficiencia algorítmica** aplicada a problemas de optimización:
 
-g(n): El costo real acumulado desde el inicio.
+### 1. El Algoritmo A* (A-Star)
+A diferencia de otros algoritmos de búsqueda, A* es "inteligente" porque utiliza una función de costo para priorizar el camino:
+$$f(n) = g(n) + h(n)$$
 
-h(n): La Heurística de Manhattan, que estima la distancia restante al destino.
+* **$g(n)$**: El costo real acumulado desde el punto de inicio.
+* **$h(n)$**: La **Heurística de Manhattan**, que estima la distancia restante al destino ignorando obstáculos.
 
-Esto permite que el algoritmo "sepa" en qué dirección es más probable que esté la meta, ahorrando recursos computacionales.
 
-Generación de Mapa Procedural:
 
-Las calles se generan automáticamente usando lógica matemática (operador módulo %), creando un patrón de rejilla urbana.
+Esta combinación permite que el algoritmo "sepa" en qué dirección es más probable que esté la meta, ahorrando recursos computacionales masivos en comparación con una búsqueda a ciegas.
 
-Los edificios se colocan aleatoriamente asegurando una densidad del 20% del mapa.
+### 2. Generación Procedural de Ciudad
+* **Malla Urbana:** Las calles se generan automáticamente usando el **operador módulo (%)**, creando un patrón de rejilla realista.
+* **Densidad de Edificios:** Se colocan obstáculos aleatorios asegurando una densidad del 20%, lo que garantiza que el mapa no esté ni demasiado vacío ni bloqueado por completo.
 
-Robustez y Manejo de Errores:
+### 3. Optimización con Priority Queue (`heapq`)
+Para garantizar que el sistema siempre procese el nodo con el costo $f$ más bajo, se implementó una **Cola de Prioridad**. Esto reduce la complejidad de búsqueda de $O(N)$ a $O(\log N)$, haciendo que el simulador sea rápido incluso en mapas grandes.
 
-Implementación de bloques try-except para validar las coordenadas del usuario, evitando que el programa falle por entradas inválidas.
+---
 
-Cola de Prioridad (heapq):
+## 🚀 Cómo Ejecutarlo
 
-Se utiliza para procesar siempre el nodo con el costo $f$ más bajo, garantizando que el camino encontrado sea el óptimo en el menor tiempo posible.
+1.  **Ejecuta el script principal:**
+    ```bash
+    python "nombredelarchivo".py
+    ```
+2.  **Configura el entorno:** Define el tamaño del mapa (mínimo 5x5).
+3.  **Añade Desafíos:** Usa el menú para colocar agua o construcciones en el mapa.
+4.  **Calcula la Ruta:** Define el punto de inicio (**🚘**) y el destino (**🏁**) para visualizar la ruta óptima calculada por la IA.
 
-🚀 Cómo Ejecutarlo
-
-Ejecuta el script:
-
-Bash
-
-python city_pathfinder.py
-
-Define el tamaño del mapa (mínimo 5x5).
-
-Usa el menú para agregar obstáculos (🔵 Agua o 🚧 Construcción).
-
-Elige los puntos de inicio (🚘) y destino (🏁) para ver la magia de A*.
+---
